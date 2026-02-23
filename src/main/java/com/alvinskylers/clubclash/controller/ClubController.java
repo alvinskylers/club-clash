@@ -1,6 +1,7 @@
 package com.alvinskylers.clubclash.controller;
 
 import com.alvinskylers.clubclash.dto.ClubDTO;
+import com.alvinskylers.clubclash.models.Club;
 import com.alvinskylers.clubclash.service.ClubService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,5 +26,15 @@ public class ClubController {
         model.addAttribute("clubs", clubs);
         return "clubs-list";
     }
+
+    @GetMapping("/clubs/new")
+    public String getNewClub(Model model) {
+        Club club = new Club();
+        model.addAttribute("clubs", club);
+        return "clubs-create";
+    }
+
+
+
 
 }
