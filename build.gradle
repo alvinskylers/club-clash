@@ -8,6 +8,8 @@ group = 'com.alvinskylers'
 version = '0.0.1-SNAPSHOT'
 description = 'ClubClash'
 
+ext['groovy.version'] = '5.0.3'
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
@@ -27,6 +29,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
     implementation 'org.springframework.boot:spring-boot-starter-webmvc'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
