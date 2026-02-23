@@ -32,14 +32,14 @@ public class ClubController {
     @GetMapping("/clubs/new")
     public String getNewClub(Model model) {
         Club club = new Club();
-        model.addAttribute("clubs", club);
+        model.addAttribute("club", club);
         return "clubs-create";
     }
 
     @PostMapping("/clubs/new")
     public String createNewClub(@ModelAttribute("club") Club club) {
         clubService.createClub(club);
-        return "redirect:/clubs-list";
+        return "redirect:/clubs";
     }
 
 
