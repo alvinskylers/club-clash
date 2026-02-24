@@ -11,7 +11,7 @@ public interface ClubRepository extends Repository<Club, Long> {
     Optional<Club> findByTitle(String url);
     List<Club> findAll();
 
-    void save(Club club);
+    Club save(Club club);
 
     Club findClubById(Long id);
 }

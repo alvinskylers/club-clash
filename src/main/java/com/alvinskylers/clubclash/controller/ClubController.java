@@ -3,14 +3,17 @@ package com.alvinskylers.clubclash.controller;
 import com.alvinskylers.clubclash.dto.ClubDTO;
 import com.alvinskylers.clubclash.models.Club;
 import com.alvinskylers.clubclash.service.ClubService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.naming.Binding;
 import java.util.List;
 
 @Controller
@@ -38,8 +41,17 @@ public class ClubController {
     }
 
     @PostMapping("/clubs/new")
-    public String createNewClub(@ModelAttribute("club") Club club) {
-        clubService.createClub(club);
+    public String createNewClub(
+            @Valid @ModelAttribute("club") ClubDTO clubDTO,
+            BindingResult result,
+            Model model
+    ) {
+        if (result.hasErrors()) {
+            model.addAttribute("club", clubDTO);
+            return "clubs-create";
+        }
+
+        clubService.createClub(clubDTO);
         return "redirect:/clubs";
     }
 
@@ -53,8 +65,12 @@ public class ClubController {
     @PostMapping("/clubs/{clubId}/edit")
     public String updateClub(
             @PathVariable("clubId") Long clubId,
-            @ModelAttribute("club") ClubDTO clubDTO
+            @Valid @ModelAttribute("club") ClubDTO clubDTO,
+            BindingResult result
     ) {
+        if (result.hasErrors()) {
+            return "clubs-edit";
+        }
         clubDTO.setId(clubId);
         clubService.updateClub(clubDTO);
         return "redirect:/clubs";

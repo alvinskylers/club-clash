@@ -8,7 +8,7 @@ import java.util.List;
 public interface ClubService {
     List<ClubDTO> findAllClubs();
 
-    Club createClub(Club club);
+    Club createClub(ClubDTO clubDTO);
 
     ClubDTO findClubById(Long id);
 
