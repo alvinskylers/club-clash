@@ -49,4 +49,14 @@ public class ClubController {
         model.addAttribute("club", club);
         return "clubs-edit";
     }
+
+    @PostMapping("/clubs/{clubId}/edit")
+    public String updateClub(
+            @PathVariable("clubId") Long clubId,
+            @ModelAttribute("club") ClubDTO clubDTO
+    ) {
+        clubDTO.setId(clubId);
+        clubService.updateClub(clubDTO);
+        return "redirect:/clubs";
+    }
 }
