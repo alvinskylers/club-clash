@@ -5,12 +5,13 @@
       layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Create Club</title>
+    <title></title>
 </head>
 <body>
-    <section layout:fragment="body" class="py-5">
-        <div class="container">
-            <form class="row g-3" method="post" th:action="@{/clubs/new}" th:object="${club}">
+<section layout:fragment="body" class="py-5">
+    <div class="container">
+        <form class="row g-3" method="post" th:action="@{/clubs/{clubId}/edit(clubId=${club.id})}" th:object="${club}">
+            <input type="hidden" th:field="{*id}">
             <div class="col-md-6">
                 <label for="title" class="form-label">Club Title</label>
                 <input
@@ -45,7 +46,7 @@
                 <button type="submit" class="btn btn-success col-sm-2">Create Club</button>
             </div>
         </form>
-        </div>
-    </section>
+    </div>
+</section>
 </body>
 </html>

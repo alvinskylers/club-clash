@@ -47,6 +47,6 @@ public class ClubController {
     public String editClub(@PathVariable("clubId") Long clubId, Model model) {
         ClubDTO club = clubService.findClubById(clubId);
         model.addAttribute("club", club);
-        return "club-edit";
+        return "clubs-edit";
     }
 }
