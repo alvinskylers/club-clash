@@ -20,6 +20,7 @@
                         name="title"
                         th:field="*{title}"
                         placeholder="Club name goes here">
+                <p th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}"></p>
             </div>
             <div class="col-md-6">
                 <label for="description" class="form-label">Description</label>
@@ -30,6 +31,7 @@
                         name="description"
                         th:field="*{description}"
                         placeholder="Club description goes here">
+                <p th:if="${#fields.hasErrors('description')}" class="text-danger" th:errors="*{description}"></p>
             </div>
             <div class="col-12">
                 <label for="photoURL" class="form-label">Photo URL</label>
@@ -40,6 +42,7 @@
                         name="photoURL"
                         th:field="*{photoURL}"
                         placeholder="http://image...">
+                <p th:if="${#fields.hasErrors('photoURL')}" class="text-danger" th:errors="*{photoURL}"></p>
             </div>
             <div class="col-12 pyx-5">
                 <button type="submit" class="btn btn-success col-sm-2">Create Club</button>
