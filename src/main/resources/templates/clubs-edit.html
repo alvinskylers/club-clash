@@ -11,39 +11,45 @@
 <section layout:fragment="body" class="py-5">
     <div class="container">
         <form class="row g-3" method="post" th:action="@{/clubs/{clubId}/edit(clubId=${club.id})}" th:object="${club}">
-            <input type="hidden" th:field="{*id}">
-            <div class="col-md-6">
-                <label for="title" class="form-label">Club Title</label>
-                <input
-                        type="text"
-                        class="form-control"
-                        id="title"
-                        name="title"
-                        th:field="*{title}"
-                        placeholder="Club name goes here">
+            <input type="hidden" th:field="*{id}">
+            <div class="col-md-4">
+                <label class="mb-2" for="image">Club Image Preview</label>
+                <img id="image" class="img-fluid rounded-3 mb-3" th:src="${club.photoURL}" alt="..." />
             </div>
             <div class="col-md-6">
-                <label for="description" class="form-label">Description</label>
-                <input
-                        type="text"
-                        class="form-control"
-                        id="description"
-                        name="description"
-                        th:field="*{description}"
-                        placeholder="Club description goes here">
-            </div>
-            <div class="col-12">
-                <label for="photoURL" class="form-label">Photo URL</label>
-                <input
-                        type="text"
-                        class="form-control"
-                        id="photoURL"
-                        name="photoURL"
-                        th:field="*{photoURL}"
-                        placeholder="http://image...">
-            </div>
-            <div class="col-12 pyx-5">
-                <button type="submit" class="btn btn-success col-sm-2">Create Club</button>
+                <div class="col-md-12 mb-3">
+                    <label for="title" class="form-label">Club Title</label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="title"
+                            name="title"
+                            th:field="*{title}"
+                            placeholder="Club name goes here">
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="description"
+                            name="description"
+                            th:field="*{description}"
+                            placeholder="Club description goes here">
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="photoURL" class="form-label">Photo URL</label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="photoURL"
+                            name="photoURL"
+                            th:field="*{photoURL}"
+                            placeholder="http://image...">
+                </div>
+                <div class="col-12 mt-4">
+                    <button type="submit" class="btn btn-success col-4">Update Club</button>
+                </div>
             </div>
         </form>
     </div>

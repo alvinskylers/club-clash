@@ -51,6 +51,7 @@ public class ClubServiceImpl implements ClubService {
        return Club.builder()
                .id(clubDTO.getId())
                .title(clubDTO.getTitle())
+               .description(clubDTO.getDescription())
                .photoURL(clubDTO.getPhotoURL())
                .createdOn(clubDTO.getCreatedOn())
                .editedOn(clubDTO.getEditedOn())
