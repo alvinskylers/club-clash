@@ -1,5 +1,6 @@
 package com.alvinskylers.clubclash.repository;
 
+import com.alvinskylers.clubclash.dto.ClubDTO;
 import com.alvinskylers.clubclash.models.Club;
 import org.springframework.data.repository.Repository;
 
@@ -11,4 +12,6 @@ public interface ClubRepository extends Repository<Club, Long> {
     List<Club> findAll();
 
     void save(Club club);
+
+    Club findClubById(Long id);
 }
