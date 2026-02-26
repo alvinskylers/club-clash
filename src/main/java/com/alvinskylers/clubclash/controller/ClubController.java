@@ -47,7 +47,7 @@ public class ClubController {
         return "clubs-create";
     }
 
-    @GetMapping("/clubs/clubId/delete")
+    @GetMapping("/clubs/{clubId}/delete")
     public String deleteClub(@PathVariable("clubId") Long clubId) {
         clubService.delete(clubId);
         return "redirect:/clubs";

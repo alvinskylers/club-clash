@@ -31,7 +31,7 @@
                         <div class="small text-muted" th:text="${club.createdOn}">January 1, 2023</div>
                         <h2 class="card-title">Featured Post Title</h2>
                         <p class="card-text" th:text="${club.description}"></p>
-                        <a class="btn btn-danger">Delete</a>
+                        <a class="btn btn-danger" th:href="@{/clubs/{clubId}/delete(clubId=${club.id})}">Delete</a>
                     </div>
                 </div>
                 <!-- Nested row for non-featured blog posts-->
