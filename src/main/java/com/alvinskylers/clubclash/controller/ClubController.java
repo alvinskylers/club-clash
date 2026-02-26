@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.naming.Binding;
 import java.util.List;
@@ -51,6 +48,13 @@ public class ClubController {
     public String deleteClub(@PathVariable("clubId") Long clubId) {
         clubService.delete(clubId);
         return "redirect:/clubs";
+    }
+
+    @GetMapping("/clubs/search")
+    public String searchClub(@RequestParam(value = "query")String query, Model model) {
+        List<ClubDTO> clubs = clubService.searchClubs(query);
+        model.addAttribute("clubs", clubs);
+        return "clubs-list";
     }
 
     @PostMapping("/clubs/new")

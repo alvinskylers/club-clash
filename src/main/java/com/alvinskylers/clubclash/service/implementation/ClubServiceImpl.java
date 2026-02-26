@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ClubServiceImpl implements ClubService {
+class ClubServiceImpl implements ClubService {
 
    private ClubRepository clubRepository;
 
@@ -49,6 +49,14 @@ public class ClubServiceImpl implements ClubService {
     @Override
     public void delete(Long clubId) {
         clubRepository.deleteById(clubId);
+    }
+
+    @Override
+    public List<ClubDTO> searchClubs(String query) {
+       List<Club> clubs = clubRepository.searchClubs(query);
+       return clubs.stream()
+               .map(this::mapToClubDTO)
+               .collect(Collectors.toList());
     }
 
     private Club mapToClub(ClubDTO clubDTO) {
