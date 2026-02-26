@@ -14,4 +14,6 @@ public interface ClubRepository extends Repository<Club, Long> {
     Club save(Club club);
 
     Club findClubById(Long id);
+
+    void deleteById(Long clubId);
 }
