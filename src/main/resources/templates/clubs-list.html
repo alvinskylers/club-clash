@@ -9,10 +9,15 @@
     <section layout:fragment="body" class="py-5">
         <div class="container px-5 my-5">
             <div class="text-center mb-5">
-                <h1 class="fw-bolder">Listed Clubs</h1>
-                <p class="lead fw-normal text-muted mb-0">Join Clubs</p>
+                <h1 class="fw-bolder">Find Your People</h1>
+                <p class="lead fw-normal text-muted mb-0">Join Clubs with other people who have the same passion</p>
             </div>
             <div class="row gx-5">
+               <div>
+                   <form th:action="@{/clubs/search}" class="form-inline my-2 mb-3">
+                       <input name="query" type="search" placeholder="search for clubs" class="form-control mb-2"/>
+                   </form>
+               </div>
                 <div th:each="club :${clubs}" class="col-lg-4 mb-lg-4">
                     <div class="position-relative mb-5">
                         <img class="img-fluid rounded-3 mb-3" th:src="${club.photoURL}" alt="..." />

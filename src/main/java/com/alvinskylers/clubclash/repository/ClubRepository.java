@@ -18,6 +18,6 @@ public interface ClubRepository extends JpaRepository<Club, Long> {
 
     void deleteById(Long clubId);
 
-    @Query("SELECT c FROM Club c WHERE c.title LIKE CONCAT('%', :query, '%') ")
+    @Query("SELECT c FROM Club c WHERE LOWER(c.title) LIKE CONCAT('%', :query, '%') ")
     List<Club> searchClubs(String query);
 }
