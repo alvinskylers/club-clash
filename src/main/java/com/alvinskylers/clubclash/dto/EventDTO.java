@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 public class EventDTO {
     private Long id;
     private String title;
+    private String type;
     private String photoURL;
     private String content;
     private LocalDateTime startTime;
