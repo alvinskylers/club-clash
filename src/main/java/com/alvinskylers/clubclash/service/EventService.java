@@ -4,5 +4,5 @@ import com.alvinskylers.clubclash.dto.EventDTO;
 
 public interface EventService {
 
-    void addEvent(Long clubId, EventDTO eventDTO);
+    void createEvent(Long clubId, EventDTO eventDTO);
 }

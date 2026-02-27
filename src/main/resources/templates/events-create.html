@@ -1,10 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Event</title>
 </head>
 <body>
-
+<section layout:fragment="body" class="py-5">
+    <div class="container">
+        <form class="row g-3" method="post" th:action="@{/events/{clubId}(clubId=${clubId})}" th:object="${events}">
+            <div class="col-md-6">
+                <label for="title" class="form-label">Event Title</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="title"
+                        name="title"
+                        th:field="*{title}"
+                        placeholder="Event name goes here">
+                <p th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}"></p>
+            </div>
+            <div class="col-md-6">
+                <label for="type" class="form-label">Event Type</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="type"
+                        name="type"
+                        th:field="*{type}"
+                        placeholder="Event type goes here">
+                <p th:if="${#fields.hasErrors('type')}" class="text-danger" th:errors="*{type}"></p>
+            </div>
+            <div class="col-md-6">
+                <label for="content" class="form-label">Content</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="content"
+                        name="content"
+                        th:field="*{content}"
+                        placeholder="Event content goes here">
+                <p th:if="${#fields.hasErrors('content')}" class="text-danger" th:errors="*{content}"></p>
+            </div>
+            <div class="col-12">
+                <label for="photoURL" class="form-label">Photo URL</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="photoURL"
+                        name="photoURL"
+                        th:field="*{photoURL}"
+                        placeholder="http://image...">
+                <p th:if="${#fields.hasErrors('photoURL')}" class="text-danger" th:errors="*{photoURL}"></p>
+            </div>
+            <div class="col-md-6">
+                <label for="start-time" class="form-label">Event Start</label>
+                <input
+                        type="datetime-local"
+                        class="form-control"
+                        id="start-time"
+                        name="start-time"
+                        th:field="*{startTime}"
+                        placeholder="Event starts">
+                <p th:if="${#fields.hasErrors('startTime')}" class="text-danger" th:errors="*{startTime}"></p>
+            </div>
+            <div class="col-md-6">
+                <label for="end-date" class="form-label">Event End</label>
+                <input
+                        type="datetime-local"
+                        class="form-control"
+                        id="end-date"
+                        name="end-time"
+                        th:field="*{endTime}"
+                        placeholder="Event ends">
+                <p th:if="${#fields.hasErrors('endTime')}" class="text-danger" th:errors="*{endTime}"></p>
+            </div>
+            <div class="col-12 pyx-5">
+                <button type="submit" class="btn btn-success col-sm-2">Create Club</button>
+            </div>
+        </form>
+    </div>
+</section>
 </body>
 </html>

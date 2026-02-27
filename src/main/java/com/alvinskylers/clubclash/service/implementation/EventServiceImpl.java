@@ -22,7 +22,7 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public void addEvent(Long clubId, EventDTO eventDTO) {
+    public void createEvent(Long clubId, EventDTO eventDTO) {
         Club club = clubRepository.findClubById(clubId);
         Event event = mapToEvent(eventDTO);
         event.setClub(club);

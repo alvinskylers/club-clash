@@ -32,6 +32,7 @@
                         <h2 class="card-title">Featured Post Title</h2>
                         <p class="card-text" th:text="${club.description}"></p>
                         <a class="btn btn-danger" th:href="@{/clubs/{clubId}/delete(clubId=${club.id})}">Delete</a>
+                        <a class="btn btn-primary" th:href="@{/events/{clubId}/new(clubId=${club.id})}">Add Event</a>
                     </div>
                 </div>
                 <!-- Nested row for non-featured blog posts-->
